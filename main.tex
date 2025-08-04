@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{book}
 \usepackage{geometry}
 \usepackage{palatino}
 \usepackage[all]{xy}
@@ -28,8 +28,8 @@
 \tableofcontents
 
 \newpage
-\section{Differentiable Manifolds}
-\subsection{Basic Definition}
+\chapter{Differentiable Manifolds}
+\section{Basic Definition}
 Let $M \subset \bb{R}^m$ be equipped with the usual (Euclidean) topology. Then $M$ is a \textbf{topological manifold} of dimension $n$ if:\\
 
 For all $p \in M$, there exists open set $U$ containing $p$ so that we have a homeomorphism
@@ -37,12 +37,12 @@ $$\phi: U \to \tilde{U} \subset \bb{R}^n$$
 where $\tilde{U}$ is open in $\bb{R}^n$. The map $\phi$ is called the \textbf{local coordinates} of $U$.
 \begin{example}
 Let
-$$M  = S^2 := \left\{ x = (x_1, x_2, x_3) | \sum_i x_i^2 = 1 \right\} \subset \bb{R}^3$$
+$$M  = S^2 := \left\{ x = (x_1, x_2, x_3)\ \Big|\ \sum_i x_i^2 = 1 \right\} \subset \bb{R}^3$$
 We need to give local coordinates for every point $p \in S^2$. There are many such options, for example define open sets
-$$U_i^{\pm} := \left\{ x \in S^2 | x_i > 0 \right\}$$
+$$U_i^{\pm} := \left\{ x \in S^2\ \Big|\ x_i > 0 \right\}$$
 Then every $p \in S^2$ must lie in at least one of the $U_1^{\pm}, U_2^{\pm}, U_3^{\pm}$.
 and define the local coordinates
-$$\phi_i^{\pm} : U_i^{\pm} \to \left\{(a,b) \in \bb{R}^2 | a^2 + b^2 < 1 \right\}$$
+$$\phi_i^{\pm} : U_i^{\pm} \to \left\{(a,b) \in \bb{R}^2\ \Big|\ a^2 + b^2 < 1 \right\}$$
 by omitting the $x_i$ coordinates.\\
 Check that $\phi_i^{\pm}$ is:\\
 1) one-one and onto\\
@@ -77,13 +77,13 @@ Consequently, for any equivalence class of of atlases $[\mc{A}]$, there exists a
 - Example 1.1 is an example of a smooth manifold.\\
 - $M = \bb{R}^n$ is a smooth manifold (with atlas $(M, id: M \to \bb{R}^n)$). So is $M = \bb{C}^n \equiv \bb{R}^{2n}$.\\
 - The collection of all $n \times n$ real or complex matrices $M_{n}(\bb{R})$ or $M_{n}(\bb{C})$.\\
-- Any open subset $W$ of a smooth manifold $M$ gives a smooth manifold (of the same dimension). Namely, if $\left\{(U,\phi)\right\}$ is a smooth atlas of $M$, then so does $\left\{(U \cap W, \phi|_{U \cap W})\right\}$.\\
+- Any open subset $W$ of a smooth manifold $M$ gives a smooth manifold (of the same dimension). Namely, if $\left\{(U,\phi)\right\}$ is a smooth atlas of $M$, then so does $\left\{(U \cap W, \phi  \Big|_{U \cap W})\right\}$.\\
 - The above realization gives us the first example of matrix Lie groups:
-$$GL(n,\bb{R}) := \left\{ g \in M_{n}(\bb{R}) | \det(g) \neq 0 \right\} $$
+$$GL(n,\bb{R}) := \left\{ g \in M_{n}(\bb{R})\ \Big|\ \det(g) \neq 0 \right\} $$
 Since the map $det: M_n(\bb{R}) \to \bb{R}$ is continuous, $GL(n,\bb{R}) = det^{-1}\left\{(-\infty,0)\cup(0,\infty)\right\}$ is an open set in $M_n(\bb{R})$.\\
 - Other matrix Lie groups (whose smooth atlas is not obvious for now):\\
-$$SL(n,\bb{R}) = \left\{ g \in GL(n,\bb{R}) | \det(g) = 1 \right\}$$
-$$O(n,\bb{R}) = \left\{ g \in GL(n,\bb{R}) | g^Tg = Id \right\}$$
+$$SL(n,\bb{R}) = \left\{ g \in GL(n,\bb{R})\ \Big|\ \det(g) = 1 \right\}$$
+$$O(n,\bb{R}) = \left\{ g \in GL(n,\bb{R})\ \Big|\ g^Tg = Id \right\}$$
 we will study more on them next Chapter.\\
 - (Product of manifolds) If $M$ and $N$ are smooth manifolds, so is their Euclidean product $M \times N$.
 \end{example}
@@ -92,19 +92,19 @@ Here is a class of manifolds we will study a lot next Chapter:
 Let $(M,[\mc{A}])$ is a smooth manifold of dimension $n+k$. A subset $S \subset M$ is a \textbf{smooth embedded submanifold} of dimension $n$ if for each point $p \in S$, there exists $(U, \phi) \in \mc{A}_{max}$ of $M$ so that $p \in U \cap S$, and the local coordinate map
 $$\phi : U \to \phi(U) \subset \bb{R}^{n+k}$$
 satisfies
-$$\phi(U \cap S) \subset \bb{R}^k = \left\{ (x_1, \dots, x_{n+k}) \in \bb{R}^{n+k} | x_{n+1} = x_{n+2} = \dots = x_{n+k} = 0 \right\}$$
+$$\phi(U \cap S) \subset \bb{R}^k = \left\{ (x_1, \dots, x_{n+k}) \in \bb{R}^{n+k}\ \Big|\ x_{n+1} = x_{n+2} = \dots = x_{n+k} = 0 \right\}$$
 \end{definition}
 \begin{example}
 $S^2 \subset \bb{R}^3$ is a smooth embedded manifold of $(\bb{R}^3, [(\bb{R}^3, id)])$.\\
-This is the first instance where we see the equivalence class abstraction is necessary - if we only have the atlas $id:\bb{R}^3 \to \bb{R}^3$, then $id|_{S^2} : S^2 \to \bb{R}^3$ can never satisfy Definition \ref{sub}.\\
+This is the first instance where we see the equivalence class abstraction is necessary - if we only have the atlas $id:\bb{R}^3 \to \bb{R}^3$, then $id  \Big|_{S^2} : S^2 \to \bb{R}^3$ can never satisfy Definition \ref{sub}.\\
 With the flexibility of equivalence class, we can define an atlas $(U_i^{\pm}, \phi_i^{\pm}), (V, id)$ of $\bb{R}^3$ by
-$$U_i^{\pm} = \left\{ (x_1, x_2, x_3) \in \bb{R}^3 | x_i > 0 \text{ (or } x_i< 0) \right\}, V := \left\{ (x_1, x_2, x_3) \in \bb{R}^3 | x_1^2 + x_2^2 + x_3^2 < 0.5 \right\}$$
+$$U_i^{\pm} = \left\{ (x_1, x_2, x_3) \in \bb{R}^3\ \Big|\ x_i > 0 \text{ (or } x_i< 0) \right\}, V := \left\{ (x_1, x_2, x_3) \in \bb{R}^3\ \Big|\ x_1^2 + x_2^2 + x_3^2 < 0.5 \right\}$$
 $$\phi_1^{\pm}: (x_1, x_2, x_3) \mapsto (x_2, x_3, 1-x_1^2-x_2^2-x_3^2)$$
 $$\phi_2^{\pm}: (x_1, x_2, x_3) \mapsto (x_1, x_3, 1-x_1^2-x_2^2-x_3^2)$$
 $$\phi_3^{\pm}: (x_1, x_2, x_3) \mapsto (x_1, x_2, 1-x_1^2-x_2^2-x_3^2)$$
 so that $(U_i^{\pm}, \phi_i^{\pm}), (V, id) \in \mc{A}_{max}$. And they are of the form in Definition \ref{sub}.
 \end{example}
-\subsection{Smooth Maps between Manifolds}
+\section{Smooth Maps between Manifolds}
 \begin{definition}
 A map $f: M \to \bb{R}^k$ is \textbf{smooth} if for every $p \in M$, there exists open set $(U,\phi)$ containing $p$ such that
 $$f \circ \phi^{-1} : \phi(U) \to \bb{R}^k$$
@@ -112,7 +112,7 @@ is smooth. Equivalently, if $(U,\phi)$ is a smooth atlas of $M$, then $f \circ \
 \end{definition}
 Note that the above definition does not depend on the choice of local coordinates in $\mc{A}_{max}$ - indeed, two different choices of local coordinates only differs $f$ by $\phi \circ \psi^{-1}$, which is smooth by definition.\\
 We write
-$$C^{\infty}(M) = \left\{ f: M \to \bb{R}\ smooth\right\}$$
+$$C^{\infty}(M) = \left\{ f: M \to \bb{R}\ \text{is a smooth map}\right\}$$
 Similarly, a map $f: M \to N$ is smooth if for any local coordinates $(U,\phi)$ and $(V,\psi)$ of $M$ and $N$ respectively,
 $\psi \circ f \circ \phi^{-1}$ is smooth in the suitable domain.
 
@@ -131,15 +131,15 @@ For example, $GL(n,\bb{R})$ is a Lie group - write the coordinates of $G \times 
 $$m_{kl}(x_{ij}, y_{ij}) = x_{k1}y_{1l} + x_{k2}y_{2l} + \dots + x_{kn}y_{nl}$$
 for each $1 \leq k,l \leq n$. Similarly, the inverse map is smooth using the formula $A^{-1} = \frac{1}{\\det(A)}adj(A)$.
 Since multiplication and inverse are the same for other matrix groups $SL(n,\bb{R})$, $SO(n,\bb{R})$, they automatically become Lie groups once we have shown they are embedded submanifolds of $GL(n,\bb{R})$.
-\subsection{Tangent Space of a Manifold} In smooth manifolds, we need to use an abstract way to define tangent vectors. Let's look at the case of $M = \bb{R}^n$:
+\section{Tangent Space of a Manifold} In smooth manifolds, we need to use an abstract way to define tangent vectors. Let's look at the case of $M = \bb{R}^n$:
 Let $a \in M$, then the tangent space at $a$, which we denote as $T_aM$ is just the space $\bb{R}^n$. We will instead look at the directional derivative at $a$ rather than the tangent vector as follows:
 $$tangent\ vector\ v_a \in T_a\bb{R}^n \stackrel{1:1}{\longleftrightarrow}\ directional\ derivative\ D_{v_a}$$
 where $D_{v_a}: C^{\infty}(\bb{R}^n) \to \bb{R}$ given by
-$$D_{v_a}(f) := \frac{d}{dt}f(a+tv)|_{t = 0}$$
+$$D_{v_a}(f) := \frac{d}{dt}f(a+tv)  \Big|_{t = 0}$$
 suppose the local coordinates is given by $x_1, x_2, \dots, x_n$, then
-$$D_{v_a}(f) = \frac{d}{dt}f(a+tv)|_{t = 0} = \frac{d}{dt}f(x_1(t), \dots, x_n(t))|_{t = 0}$$
+$$D_{v_a}(f) = \frac{d}{dt}f(a+tv)  \Big|_{t = 0} = \frac{d}{dt}f(x_1(t), \dots, x_n(t))  \Big|_{t = 0}$$
 with $x_i(t) = a_i + tv_i$, so chain rule gives
-$$D_{v_a}(f) = \frac{d}{dt}f(a+tv)|_{t = 0} = \sum_i \frac{dx_i}{dt}\frac{\partial f}{\partial x_i}(a) = \sum_i v_i\frac{\partial f}{\partial x_i}(a)$$
+$$D_{v_a}(f) = \frac{d}{dt}f(a+tv)  \Big|_{t = 0} = \sum_i \frac{dx_i}{dt}\frac{\partial f}{\partial x_i}(a) = \sum_i v_i\frac{\partial f}{\partial x_i}(a)$$
 
 For general manifold $M$:
 \begin{definition}
@@ -150,9 +150,9 @@ $$X_p(fg) = f(p)X_p(g) +g(p)X_p(f)$$
 the collection of all such maps is the \textbf{tangent space} $T_pM$.
 \end{definition}
 For example,
-$$T_a(\bb{R}^n) = \mathrm{Span}\left\{ \frac{\partial }{\partial x_1}|_a, \frac{\partial }{\partial x_2}|_a, \dots, \frac{\partial}{\partial x_n}|_a \right\}$$
+$$T_a(\bb{R}^n) = \mathrm{Span}\left\{ \frac{\partial }{\partial x_1}  \Big|_a, \frac{\partial }{\partial x_2}  \Big|_a, \dots, \frac{\partial}{\partial x_n}  \Big|_a \right\}$$
 Suppose $(U,\phi: U \to \tilde{U} = \mathrm{Span}\left\{x_1, \dots, x_n\right\})$ is a local coordinate of $M$ with $p \in U \subset M$, then we can express the tangent vector locally by
-$$a_1\frac{\partial }{\partial x_1}|_p +  \dots +  a_n \frac{\partial }{\partial x_n}|_p$$
+$$a_1\frac{\partial }{\partial x_1}  \Big|_p +  \dots +  a_n \frac{\partial }{\partial x_n}  \Big|_p$$
 Given a map of smooth manifolds, we can also map tangent vectors by the following:
 \begin{definition}
 Let $M$ and $N$ be smooth manifolds, and $F: M \to N$ is a smooth map. The \textbf{push-forward} $F_*$ is defined by
@@ -162,21 +162,21 @@ where $F_*X(f) := X(f \circ F)$ for any $f \in C^{\infty}(N)$.
 \end{definition}
 Obviously, if $F_1 : M_1 \to M_2$ and $F_2: M_2 \to M_3$ are smooth maps, then $(F_2 \circ F_1)_* = (F_2)_* \circ (F_1)_*$.
 \begin{example}
-Let $F: M \to \bb{R}^k$, and $X_p := \frac{\partial }{\partial x_1}|_p \in T_pM$. What is $F_*(\frac{\partial }{\partial x_1}|_p)$?\\
+Let $F: M \to \bb{R}^k$, and $X_p := \frac{\partial }{\partial x_1}  \Big|_p \in T_pM$. What is $F_*(\frac{\partial }{\partial x_1}  \Big|_p)$?\\
 For $f(y_1, \dots, y_k) \in C^{\infty}(\bb{R}^k)$,
 \begin{align*}
-F_*(\frac{\partial }{\partial x_1}|_p)(f) &= \frac{\partial }{\partial x_1}|_p(f \circ F) \\
+F_*(\frac{\partial }{\partial x_1}  \Big|_p)(f) &= \frac{\partial }{\partial x_1}  \Big|_p(f \circ F) \\
 &= \sum_j \frac{\partial f}{\partial y_j}(F(p)) \frac{\partial F_j}{\partial x_1}(p)\\
 &= \sum_j \frac{\partial F_j}{\partial x_1}(p)\frac{\partial f}{\partial y_j}(F(p))
 \end{align*}
 therefore,
-$$F_*(\frac{\partial }{\partial x_1}|_p) = \sum_j \frac{\partial F_j}{\partial x_1}(p)\frac{\partial }{\partial y_j}|_{F(p)}$$
+$$F_*(\frac{\partial }{\partial x_1}  \Big|_p) = \sum_j \frac{\partial F_j}{\partial x_1}(p)\frac{\partial }{\partial y_j}  \Big|_{F(p)}$$
 \end{example}
 \begin{exercise}
-Let $i: S^2 \to \bb{R}^3$ be as in Example 1.9. Compute $i_*(\frac{\partial }{\partial u_1}|_{p = (\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})})$
+Let $i: S^2 \to \bb{R}^3$ be as in Example 1.9. Compute $i_*(\frac{\partial }{\partial u_1}  \Big|_{p = (\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})})$
 \end{exercise}
 
-\subsection{Imbedded Submanifold}
+\section{Imbedded Submanifold}
 There is another kind of submanifold we are interested in, which only involves studying the tangent space:
 \begin{definition}
 Let $M$ be a smooth manifold. A subset $S$ of $M$ is called an \textbf{imbedded submanifold} if $S$ is itself a smooth manifold (the topology of $S$ may not be the subset topology of $M$) and the inclusion map $i: S \hookrightarrow M$ has the property that
@@ -184,24 +184,24 @@ $$i_* : T_s(S) \to T_s(M)$$
 is injective for all $s \in S$.
 \end{definition}
 We can show that all embedded submanifolds are imbedded submanifolds as follows: Suppose $f: S \to M$ be a smooth embedded submanifold, consider $f_*: T_s(S) \to T_s(M)$. In terms of local coordinates
-$$T_s(M) = \mathrm{Span}\left\{ \frac{\partial}{\partial x_1}|_s, \frac{\partial}{\partial x_2}|_s, \dots, \frac{\partial}{\partial x_{n+k}}|_s\right\}$$
+$$T_s(M) = \mathrm{Span}\left\{ \frac{\partial}{\partial x_1}  \Big|_s, \frac{\partial}{\partial x_2}  \Big|_s, \dots, \frac{\partial}{\partial x_{n+k}}  \Big|_s\right\}$$
 and
-$$T_s(S) = \mathrm{Span}\left\{ \frac{\partial}{\partial x_1}|_s, \frac{\partial}{\partial x_2}|_s, \dots, \frac{\partial}{\partial x_{n}}|_s\right\}$$
+$$T_s(S) = \mathrm{Span}\left\{ \frac{\partial}{\partial x_1}  \Big|_s, \frac{\partial}{\partial x_2}  \Big|_s, \dots, \frac{\partial}{\partial x_{n}}  \Big|_s\right\}$$
 
 However, \textbf{not all imbedded submanifolds are embedded submanifolds}.
 
-\subsection{Vector Field}
+\section{Vector Field}
 Roughly speaking, a \textbf{vector field} on a smooth manifold $M$ is a collection of tangent vectors at different points $p \in M$, i.e.
 $$X: p \in M \mapsto X_p \in T_pM$$
 a smooth vector field is a vector field that changes smoothly along $p \in M$. since we do not define tangent bundle and smooth sections here we will stick with this intuition of vector bundles in this section. In local coordinates, a smooth vector bundle looks like
-$$X_p = \sum_k a_k(p) \frac{\partial}{\partial x_k}|_p$$
+$$X_p = \sum_k a_k(p) \frac{\partial}{\partial x_k}  \Big|_p$$
 where $a_k(p) \in C^{\infty}(U)$.\\
 There is another way to look at vector fields - suppose $X$ is a vector field on a manifold $M$, and $f \in C^{\infty}(M)$. Then we can define the function $Xf \in C^{\infty}(M)$ by
 $$Xf(p) := X_p(f)$$
 So we have defined a map $X : C^{\infty}(M) \to C^{\infty}(M)$ given by $X(f) := Xf$. Such map has the Leibniz property, namely
 $$X(fg) = X(f)g + fX(g)$$
 in fact, it can be shown that every $\alpha: C^{\infty}(M) \to C^{\infty}(M)$ having the Leibniz property can be realized as a vector field.
-\subsection{Lie bracket on Vector Fields}
+\section{Lie bracket on Vector Fields}
 Given two vector fields $V$ and $W$ on a manifold $M$, define the \textbf{Lie bracket} $[V,W]$ to be the vector field
 $$[V,W]_p(f) = V_p (Wf) - W_p(Vf)$$
 (check that it satisfies the Leibniz rule)\\
@@ -222,16 +222,16 @@ In particular, $Lie(G)$ satisfies the properties of Proposition \ref{liebracket}
 \end{definition}
 \begin{example} \label{vfgl}
 Let $G = GL(n,\bb{R})$ and compute the Lie bracket of $Lie(G)$. First of all, we need to know $T_I(G)$. Since $G$ is an open submanifold of $M_n(\bb{R})$,
-$$T_I(G) = \left\{ A_{ij}\frac{\partial}{\partial x_{ij}}|_I\ \Big|\ A_{ij} \in \bb{R} \right\}\ \stackrel{1:1}{\longleftrightarrow}\ A = (A_{ij}) \in M_n(\bb{R})$$
-and all $Lie(G)$ are of the form $(L_g)_*(\sum_{i,j} A_{ij}\frac{\partial}{\partial x_{ij}}|_I)$ for any matrix $A \in M_n(\bb{R})$. We write $\tilde{A}$ be its corresponding vector field, i.e.
-$$\tilde{A}_g := {L_g}_*(\sum_{i,j} A_{ij}\frac{\partial}{\partial x_{ij}}|_I) = \sum_{i,j}(gA)_{ij}\frac{\partial}{\partial x_{ij}}|_g$$
+$$T_I(G) = \left\{ A_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I\ \Big|\ A_{ij} \in \bb{R} \right\}\ \stackrel{1:1}{\longleftrightarrow}\ A = (A_{ij}) \in M_n(\bb{R})$$
+and all $Lie(G)$ are of the form $(L_g)_*(\sum_{i,j} A_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I)$ for any matrix $A \in M_n(\bb{R})$. We write $\tilde{A}$ be its corresponding vector field, i.e.
+$$\tilde{A}_g := {L_g}_*(\sum_{i,j} A_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I) = \sum_{i,j}(gA)_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_g$$
 (Exercise: Check the last equality holds). Now
 \begin{align*}
 [\tilde{A},\tilde{B}]_I(f) &= [\sum_{i,j}A_{ij}\frac{\partial}{\partial x_{ij}}, \sum_{p,q}B_{pq}\frac{\partial}{\partial x_{pq}}]_I(f)\\
- &= \sum_{i,j}A_{ij}\frac{\partial}{\partial x_{ij}}|_I (\tilde{B}f) -  \sum_{p,q}B_{pq}\frac{\partial}{\partial x_{pq}}|_I (\tilde{A}f)\\
- &= \sum_{i,j}A_{ij}\frac{\partial}{\partial x_{ij}}|_I (\sum_{p,q,r}x_{pr}B_{rq}\frac{\partial f}{\partial x_{pq}}(x)) - \sum_{p,q}B_{pq}\frac{\partial}{\partial x_{pq}}|_I (\sum_{i,j,k}x_{ik}A_{kj}\frac{\partial f}{\partial x_{ij}}(x))\\
+ &= \sum_{i,j}A_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I (\tilde{B}f) -  \sum_{p,q}B_{pq}\frac{\partial}{\partial x_{pq}}  \Big|_I (\tilde{A}f)\\
+ &= \sum_{i,j}A_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I (\sum_{p,q,r}x_{pr}B_{rq}\frac{\partial f}{\partial x_{pq}}(x)) - \sum_{p,q}B_{pq}\frac{\partial}{\partial x_{pq}}  \Big|_I (\sum_{i,j,k}x_{ik}A_{kj}\frac{\partial f}{\partial x_{ij}}(x))\\
  &= \sum_{i,j,q}A_{ij}B_{jq}\frac{\partial f}{\partial x_{iq}}(I) - \sum_{p,q,j}B_{pq}A_{qj}\frac{\partial f}{\partial x_{pj}}(I)\\
- &= (AB-BA)_{ij}\frac{\partial f}{\partial x_{ij}}|_I
+ &= (AB-BA)_{ij}\frac{\partial f}{\partial x_{ij}}  \Big|_I
 \end{align*}
 (Exercise: Check that the quadratic terms in the second last equality cancel out each other at $X = I$). Therefore, $[\tilde{A}, \tilde{B}] = \widetilde{AB-BA}$.
 \end{example}
@@ -240,12 +240,12 @@ Fill in the details of the above Example.
 \end{exercise}
 
 
-\subsection{Integral Curves}
+\section{Integral Curves}
 Given a vector field $X$ on a manifold, we want to find a curve on the manifold whose tangent vector at every point of the curve is the tangent vector $X_p$. Such curve may not exist at all. However, if our vector field is smooth (which we have not defined properly above), then the existence and uniqueness of such curve is guaranteed:
 \begin{theorem}\label{intcurve}
 Let $X$ be a smooth vector field on a manifold $M$. For any $p \in M$, there exists an open interval $\mc{D}$ containing $0$ such that there exists a smooth map $\theta_p: \mc{D} \to M$ such that:\\
 - $\theta_p(0) = p$, and\\
-- the vector field $\frac{d}{dt}$ on $\mc{D}$ is related to $X$, i.e. $(\theta_p)_*(\frac{d}{dt}|_s) = X_{\theta_p(s)}$.
+- the vector field $\frac{d}{dt}$ on $\mc{D}$ is related to $X$, i.e. $(\theta_p)_*(\frac{d}{dt}  \Big|_s) = X_{\theta_p(s)}$.
 Suppose two maps $\theta_p$ and $\theta'_p$ satisfying the above conditions, then they must be equal to each other on their common domain.\\
 Consequently, there is a unique maximal open interval $\mc{D}_p$ so that $\theta_p : \mc{D}_p \to M$ satisfying the two properties above.
 \end{theorem}
@@ -266,16 +266,16 @@ Let us take a look at the integral curves of the left invariant vectors in a Lie
 \begin{theorem}
 Every left invariant vector field on $G$ is \textbf{complete}, i.e. given any left invariant vector field $X$, its integral curve $\theta_g: \mc{D}_g \to G$ has $\mc{D}_g = \bb{R}$ for all $g \in G$. \\
 Consequently, for every $X \in Lie(G)$ we have a map $\theta_I: \bb{R} \to G$
-$$t \mapsto \theta_I(t) =: exp(tX)$$
-satisfying $exp((s+t)X) = exp(tX)exp(sX)$.
+$$t \mapsto \theta_I(t) =: \exp(tX)$$
+satisfying $\exp((s+t)X) = \exp(tX)\exp(sX)$.
 \end{theorem}
 \begin{proof}
-Suppose $X \in Lie(G)$ is a left-invariant vector field. Let $\theta_I: \mc{D}_I \to G$ be the maximal integral curve of $X$ with $\theta_I(0) = I$. Suppose on the contrary that $\mc{D}_I$ is not equal to $\bb{R}$ with $\max\left\{x | x \in \mc{D}_I\right\} = b < \infty$ (the argument is the same if instead $\mc{D}_I$ has a lower bound).\\
+Suppose $X \in Lie(G)$ is a left-invariant vector field. Let $\theta_I: \mc{D}_I \to G$ be the maximal integral curve of $X$ with $\theta_I(0) = I$. Suppose on the contrary that $\mc{D}_I$ is not equal to $\bb{R}$ with $\max\left\{x\ \Big|\ x \in \mc{D}_I\right\} = b < \infty$ (the argument is the same if instead $\mc{D}_I$ has a lower bound).\\
 
 Take $b' = b- \epsilon$ with $\epsilon > 0$ small and consider $g := \theta_I(b')$. Then there exists an integral curve $\theta_g$ with $\theta_g(0) = g$.\\
 We claim that $\theta_g = L_g \circ \theta_I$ for $|t_0| < \epsilon$: Consider
 \begin{align*}
-(L_g \circ \theta_I)_*(\frac{d}{dt}|_{t=t_0}) &= (L_g)_* (\theta_I)_*(\frac{d}{dt}|_{t=t_0})\\
+(L_g \circ \theta_I)_*(\frac{d}{dt}  \Big|_{t=t_0}) &= (L_g)_* (\theta_I)_*(\frac{d}{dt}  \Big|_{t=t_0})\\
 &= (L_g)_*X_{\theta_I(t_0)}\\
 &= X_{g\theta_I(t_0)} \\
 &= X_{(L_g \circ \theta_I)(t_0)}
@@ -284,18 +284,18 @@ So they are equal by the uniqueness of integral curves. And hence we can extend 
 $$\theta_I(t) = L_g \circ \theta_I(t - b')$$
 for $b' < t < b'+b$. That is, the $\mc{D}_I$ is \textbf{not} maximal, which gives a contradiction.\\
 We have shown that the domain of integral curve on $I$ can be extended to the whole $\bb{R}$. One can actually do this for integral curves on any $g \in G$ by defining $\theta_g := L_g \circ \theta_I$. It was already shown to be an integral curve on $g$, and has domain equal to $\bb{R}$. Hence any left invariant vector field $X$ on $G$ is complete.\\
-The last statement is just a direct application on the previous theorem - $\Phi_{s+t}(I) = \Phi_t (\Phi_s(I))$ means that $\theta_I(s+t) = \theta_{exp(sX)}(t)$, therefore
-$$exp((s+t)X)= \theta_I(s+t) = \theta_{exp(sX)}(t) = L_{exp(sX)} \circ \theta_I(t) = exp(sX)exp(tX)$$
+The last statement is just a direct application on the previous theorem - $\Phi_{s+t}(I) = \Phi_t (\Phi_s(I))$ means that $\theta_I(s+t) = \theta_{\exp(sX)}(t)$, therefore
+$$\exp((s+t)X)= \theta_I(s+t) = \theta_{\exp(sX)}(t) = L_{\exp(sX)} \circ \theta_I(t) = \exp(sX)\exp(tX)$$
 \end{proof}
-We will study the matrix exponential map $X \mapsto e^X$ in next Chapter (note the difference I wrote the two maps - $exp(X)$ and $e^X$). It turns out that the two maps are going to be the same for matrix groups.\\
+We will study the matrix exponential map $X \mapsto e^X$ in next Chapter (note the difference I wrote the two maps - $\exp(X)$ and $e^X$). It turns out that the two maps are going to be the same for matrix groups.\\
 
 The following theorem is essential in the coming Chapter:
 \begin{theorem} \label{embtangent}
-Let $i: S \hookrightarrow M$ be an embedded submanifold. Then for $p \in S \subset M$, a tangent vector $X_p \in T_pM$ is in $T_pS$ if we can find $f: (-\epsilon,\epsilon) \to S$ such that $f(0) = p$ and $f_*(\frac{d}{dt}|_{t=0}) = X_p$.
+Let $i: S \hookrightarrow M$ be an embedded submanifold. Then for $p \in S \subset M$, a tangent vector $X_p \in T_pM$ is in $T_pS$ if we can find $f: (-\epsilon,\epsilon) \to S$ such that $f(0) = p$ and $f_*(\frac{d}{dt}  \Big|_{t=0}) = X_p$.
 \end{theorem}
 
 \newpage
-\section{Matrix Lie Groups}
+\chapter{Matrix Lie Groups}
 \begin{definition}
 A group $G$ is a \textbf{matrix Lie group over} $\bb{R}$ if it is a closed subgroup of $GL(n,\bb{R})$.
 \end{definition}
@@ -325,7 +325,7 @@ a & & \\
  & 1 & c \\
 & & 1 \end{array} \right)\ \Big|\ a, b,c \in \bb{R} \right\}$
 \end{example}
-\subsection{Exponential Map}
+\section{Exponential Map}
 \begin{definition}
 Let $X \in M_n(\bb{R})$. The \textbf{exponential} of $X$, denoted as $e^X$ is given by
 $$e^X := \sum_{n = 0}^{\infty} \frac{X^m}{m!}$$
@@ -370,7 +370,7 @@ in the ring $\bb{C}[t]$.\\
 (c) Check that $S$ diagonalizes all $V_i$, in particular all vectors in $V_i$ is an eigenvector of $S$ with eigenvalue $a_i$.\\
 (d) Check that $N$ is nilpotent on all $V_i$, in particular check that $N^{m_i} = 0$ on $V_i$.
 \end{exercise}
-\subsection{Matrix Logarithm}
+\section{Matrix Logarithm}
 \begin{definition}
 For any $A \in M_{n}(\bb{R})$, define the \textbf{logarithm} of $A$ by
 $$\log(A) := \sum_{i = 1}^{\infty} (-1)^{i+1} \frac{(A-I)^i}{i}$$
@@ -419,7 +419,7 @@ $$||e^X - I|| \leq \sum_{m = 1}^{\infty}\frac{||X||^m}{m!} = e^{||X||} - 1 < e^{
 so $log(e^X)$ is well-defined.
 \end{proof}
 
-\subsection{Lie algebra}
+\section{Lie algebra}
 \begin{definition}
 Let $G$ be a matrix Lie group over $\bb{R}$. The \textbf{Lie algebra} $\mf{g}$ of $G$ is the set of matrices $X$ such that $e^{tX} \in G$ for all \textbf{real} numbers $t$.
 \end{definition}
@@ -435,7 +435,7 @@ Let $\mf{g}$ be the Lie algebra of a matrix Lie group $G$ over $\bb{R}$, and $X,
 (a) is obvious from definition.\\
 For (b), we need to use Proposition \ref{tracedet}(f) - $e^{t(X+Y)} = \lim_{n \to \infty}(e^{tX/m}e^{tY/m})^m$. Since $X, Y \in \mf{g}$, $e^{tX/m}, e^{tY/m} \in G$ and hence it is a limit on elements in $G$. However, $G$ is a closed subgroup of $GL(n,\bb{R})$, hence its limit $e^{t(X+Y)}$ is in $G$ as long as it is in $GL(n,\bb{R})$. But we have already seen that $e^A$ is invertible (with inverse $e^{-A}$) hence $e^{t(X+Y)}$ is indeed in $GL(n,\bb{R})$ and in $G$.\\
 For (c), consider
-$$\frac{d}{dt}(e^{tX}Ye^{-tX})|_{t = 0} = \lim_{h \to 0} \frac{e^{tX}Ye^{-tX} - Y}{h} = XY - YX$$
+$$\frac{d}{dt}(e^{tX}Ye^{-tX})  \Big|_{t = 0} = \lim_{h \to 0} \frac{e^{tX}Ye^{-tX} - Y}{h} = XY - YX$$
 by Proposition \ref{tracedet}(e), $e^{s(e^{tX}Ye^{-tX})} = e^{tX}e^{sY}e^{-tX} \in G$ for all $s$, hence $e^{tX}Ye^{-tX} \in \mf{g}$. Now (a) and (b) says $\mf{g}$ is a real vector space, and hence it is closed. In particular, the limit in the middle part of the above equation will converge to $\mf{g}$, hence $XY - YX \in \mf{g}$.
 \end{proof}
 
@@ -446,7 +446,7 @@ $$\mf{sl}(n,\bb{R}) = \left\{ X \in M_n(\bb{R})\ \Big|\ trace(X) = 0 \right\}$$
 -$O(n,\bb{R})$: $X \in \mf{g}\ \ \Longleftrightarrow \ \ (e^{tX})^Te^{tX} = e^{tX^T}e^{tX} = I \ \ \Longleftrightarrow \ \ e^{tX^T} = e^{-tX}$ for all $t$. Therefore,
 $$X^T = -X\  \Longrightarrow\ X \in \mf{g}$$
 on the other hand, if $X \in \mf{g}$, then
-$$\frac{d}{dt}e^{tX^T}|_{t = 0} = \frac{d}{dt}e^{-tX}|_{t=0}\ \ \Longrightarrow\ \ X^T = -X$$
+$$\frac{d}{dt}e^{tX^T}  \Big|_{t = 0} = \frac{d}{dt}e^{-tX}  \Big|_{t=0}\ \ \Longrightarrow\ \ X^T = -X$$
 So
 $$\mf{o}(n,\bb{R}) = \left\{ X \in M_n(\bb{R})\ \Big|\ X^T = -X \right\}$$
 Note that the diagonal entries of $\mf{o}(n,\bb{R})$ are all zero, hence it is automatically of trace 0, that mean the Lie algebra of $SO(n,\bb{R})$ is the same as $O(n,\bb{R})$.\\
@@ -458,7 +458,7 @@ $$\mf{sp}(2n,\bb{R}) = \left\{ X \in M_{2n}(\bb{R})\ \Big|\ X^T\left( \begin{arr
 -I_n & 0 \end{array} \right)X = 0 \right\}$$
 \end{example}
 
-\subsection{Relation between matrix Lie group and Lie group}
+\section{Relation between matrix Lie group and Lie group}
 \begin{theorem} \label{explog}
 For $0 < \epsilon < \ln 2$, let
 $$U_{\epsilon} = \left\{X \in M_n(\bb{R})|\ ||X||<\epsilon \right\}$$ and
@@ -477,28 +477,28 @@ $$U := g\cdot (V_{\epsilon} \cap G) \stackrel{L_{g^{-1}}}{\longrightarrow} V_{\e
 
 \begin{corollary}
 Let $G$ be a matrix Lie group, then
-$$X = (X_{ij})\in \mf{g} \Longleftrightarrow X_{ij}\frac{\partial}{\partial x_{ij}}|_I \in T_I(G) \subset T_I(GL(n,\bb{R}))$$
+$$X = (X_{ij})\in \mf{g} \Longleftrightarrow X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I \in T_I(G) \subset T_I(GL(n,\bb{R}))$$
 \end{corollary}
 \begin{proof}
 Suppose $X = (X_{ij})\in \mf{g}$. Then $\gamma: \bb{R} \to G$ defined by $\gamma(t) = e^{tX}$ yields
-$$\gamma_*(\frac{d}{dt}|_0) = X_{ij}\frac{\partial}{\partial x_{ij}}|_I$$
-By Theorem \ref{embtangent}, $X_{ij}\frac{\partial}{\partial x_{ij}}|_I \in T_I(G)$.\\
+$$\gamma_*(\frac{d}{dt}  \Big|_0) = X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I$$
+By Theorem \ref{embtangent}, $X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I \in T_I(G)$.\\
 
-\noindent Conversely, suppose $X_{ij}\frac{\partial}{\partial x_{ij}}|_I \in T_I(G)$. Construct the vector field
-$$X_g := (L_g)_*X_{ij}\frac{\partial}{\partial x_{ij}}|_I = (gX)_{ij}\frac{\partial}{\partial x_{ij}}|_g$$
+\noindent Conversely, suppose $X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I \in T_I(G)$. Construct the vector field
+$$X_g := (L_g)_*X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I = (gX)_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_g$$
 By Theorem \ref{intcurve}, it has a unique integral curve $\gamma: (-\epsilon, \epsilon) \to G$
-with $\gamma(0) = I$ and $\gamma_*(\frac{d}{dt}|_{0}) = X_{ij}\frac{\partial}{\partial x_{ij}}|_{I}$. More precisely, writing $\gamma(t) = (\gamma_{ij}(t)) \in G$, then $\frac{d\gamma_{ij}}{dt}(0) = X_{ij}$.\\
+with $\gamma(0) = I$ and $\gamma_*(\frac{d}{dt}  \Big|_{0}) = X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_{I}$. More precisely, writing $\gamma(t) = (\gamma_{ij}(t)) \in G$, then $\frac{d\gamma_{ij}}{dt}(0) = X_{ij}$.\\
 
 \noindent Now recall Theorem \ref{explog}. There exists $0 < a < \epsilon$ such that $\left\{ \gamma(t) \in G\ \Big|\ |t|<a \right\}$ maps bijectively to its image of $log$. In particular, for all $|t| < a < \epsilon$,
 $$\log(\gamma(t)) \in \mf{g}$$
 Since $\mf{g}$ is a vector subspace of $M_n(\bb{R})$, it is closed and hence
-$$\frac{d}{dt}(\log(\gamma(t)))|_{t= 0} \in \mf{g}$$
+$$\frac{d}{dt}(\log(\gamma(t)))  \Big|_{t= 0} \in \mf{g}$$
 Expanding $log(\gamma(t)) = (\gamma(t) - I) - \frac{(\gamma(t) - I)^2}{2} + \frac{(\gamma(t) - I)^3}{3} - \dots$, it is easy to see
-$$\frac{d}{dt}(\log(\gamma(t)))|_{t= 0} = \frac{d\gamma}{dt}(0) = (\frac{d\gamma_{ij}}{dt}(0)) \in \mf{g}$$
+$$\frac{d}{dt}(\log(\gamma(t)))  \Big|_{t= 0} = \frac{d\gamma}{dt}(0) = (\frac{d\gamma_{ij}}{dt}(0)) \in \mf{g}$$
 therefore, $X \in \mf{g}$ and the corollary is proved.
 \end{proof}
 In conclusion, we have the following three characterizations of the matrix Lie algebra $\mf{g}$:
-$$X \in \mf{g} \subset M_{n}(\bb{R})\ \ \longleftrightarrow\ \  \sum_{ij} X_{ij}\frac{\partial}{\partial x_{ij}}|_I \in T_1G\ \  \longleftrightarrow\ \  \tilde{X} \in Lie(G)$$
+$$X \in \mf{g} \subset M_{n}(\bb{R})\ \ \longleftrightarrow\ \  \sum_{ij} X_{ij}\frac{\partial}{\partial x_{ij}}  \Big|_I \in T_1G\ \  \longleftrightarrow\ \  \tilde{X} \in Lie(G)$$
 Moreover, using the link between the first and third realizations of $\mf{g}$, we can show that the Lie bracket of $X$, $Y \in \mf{g}$ satisfies the properties given in Proposition \ref{liebracket}. Using Example \ref{vfgl}, one can get another proof of $XY - YX \in \mf{g}$.
 
 \begin{remark}
@@ -507,20 +507,20 @@ In particular, every Lie group $G$ defines a Lie algebra on the tangent space $T
 More particularly, since every matrix Lie group is a Lie group, so it has a corresponding Lie algebra, and by Example \ref{vfgl} the Lie bracket is exactly $[X,Y] := XY - YX$.
 \end{remark}
 
-We end this Section by relating the exponential map $exp(X)$ defined by using integral curve, and the exponential map $e^X$ using matrices:
+We end this Section by relating the exponential map $\exp(X)$ defined by using integral curve, and the exponential map $e^X$ using matrices:
 \begin{corollary}
-Suppose $X \in \mf{g}$ is a matrix with corresponding $\tilde{X} \in Lie(G)$. Then $e^{tX} = exp(tX)$.
+Suppose $X \in \mf{g}$ is a matrix with corresponding $\tilde{X} \in Lie(G)$. Then $e^{tX} = \exp(tX)$.
 \end{corollary}
 \begin{proof}
-Recall $exp(tX) = \theta_I(t)$ for the integral curve $\theta_I: \bb{R} \to G$. Now consider the function $\epsilon: \bb{R} \to G$ given by $t \mapsto e^{tX}$. By Proposition \ref{tracedet}(d),
-$$\epsilon_*(\frac{d}{dt}|_{t = t_0}) = \sum_{i,j} (\epsilon(t_0)X)_{ij} \frac{\partial}{\partial x_{ij}}|_{t = t_0}$$
+Recall $\exp(tX) = \theta_I(t)$ for the integral curve $\theta_I: \bb{R} \to G$. Now consider the function $\epsilon: \bb{R} \to G$ given by $t \mapsto e^{tX}$. By Proposition \ref{tracedet}(d),
+$$\epsilon_*(\frac{d}{dt}  \Big|_{t = t_0}) = \sum_{i,j} (\epsilon(t_0)X)_{ij} \frac{\partial}{\partial x_{ij}}  \Big|_{t = t_0}$$
 on the other hand,
-$$(\theta_I)_*(\frac{d}{dt}|_{t = t_0}) = \tilde{X}_{\theta_I(t_0)} = \sum_{i,j} (\theta_I(t_0)X)_{ij} \frac{\partial}{\partial x_{ij}}|_{t = t_0}$$
+$$(\theta_I)_*(\frac{d}{dt}  \Big|_{t = t_0}) = \tilde{X}_{\theta_I(t_0)} = \sum_{i,j} (\theta_I(t_0)X)_{ij} \frac{\partial}{\partial x_{ij}}  \Big|_{t = t_0}$$
 by uniqueness of integral curve, $\theta_I = \epsilon$ and hence the corollary follows.
 \end{proof}
-For the rest of this course, many proofs and theorems are proved in the context of matrix Lie groups (closed subgroup of $GL$). Indeed, if we have the $exp$ map, we can generalize most of the theorems to Lie groups (manifolds with group structure) by replacing $e^X$ with $exp(X)$ in the proofs.
+For the rest of this course, many proofs and theorems are proved in the context of matrix Lie groups (closed subgroup of $GL$). Indeed, if we have the $exp$ map, we can generalize most of the theorems to Lie groups (manifolds with group structure) by replacing $e^X$ with $\exp(X)$ in the proofs.
 
-\subsection{Matrix Lie Groups in general}
+\section{Matrix Lie Groups in general}
 We have a general definition of a matrix Lie group:
 \begin{definition}
 A \textbf{matrix Lie group} is a closed subgroup of $GL(n,\bb{C})$.
@@ -552,7 +552,7 @@ A matrix Lie group $G$ is \textbf{complex} if its Lie algebra $\mf{g}$ is a comp
 \end{definition}
 For example $SU(n)$ is not a matrix Lie group over $\bb{R}$, but it is a real matrix Lie group. While $SO(n,\bb{C})$, $Sp(2n,\bb{C})$, $GL(n,\bb{C})$ are complex Lie groups.
 
-\subsection{Complexification and Real Forms}
+\section{Complexification and Real Forms}
 Let $\mf{g}$ be a real Lie algebra (not necessarily a matrix Lie algebra). Then its complexification is given by
 $$\mf{g}_{\bb{C}} := \left\{X + JY\ \Big|\ X, Y \in \mf{g} \right\}$$
 where $J$ satisfies the property $J(X+JY) = -Y + JX$ for all $X, Y \in \mf{g}$.\\
@@ -638,7 +638,7 @@ $$[(X_1, X_2), (Y_1, Y_2)] := ([X_1,Y_1] - [X_2,Y_2], [X_1,Y_2]+[X_2,Y_1])$$
 Note that in the example above (plus some other exercises you worked on your own), two different real Lie algebras may have the same complex Lie algebra after complexifications. We define the \textbf{real form of a complex Lie algebra} $\mf{g}$ to be the collection of all real Lie algebras $\mf{h}$ so that $\mf{h}_{\bb{C}} \cong \mf{g}$. For example, $\mf{u}(n)$ and $\mf{gl}(n,\bb{R})$ are both real forms of the complex Lie algebra $\mf{gl}(n,\bb{C})$.
 
 
-\subsection{Lie group and Lie algebra homomorphisms} \label{liehom}
+\section{Lie group and Lie algebra homomorphisms} \label{liehom}
 We now give the precise definition of Lie group and Lie algebra homomorphisms (again, these definitions do not confine to matrix Lie groups and their Lie algebras).
 \begin{definition}
 Let $G$ and $H$ be Lie groups. A map $\Phi: G \to H$ is called a \textbf{Lie group homomorphism} if it is a group homomorphism and $\Phi$ is continuous. Furthermore, it is a Lie group \textbf{isomorphism} if $\Phi$ is bijective and $\Phi^{-1}$ is also continuous.\\
@@ -659,21 +659,21 @@ We will not prove this Proposition, the interested reader can find the proof in 
 Suppose $\Phi:G \to H$ is a Lie group homomorphism. Then there exists a unique Lie algebra homomorphism $\phi: \mf{g} \to \mf{h}$ such that
 $$\Phi(e^X) = e^{\phi(X)}$$
 $$\phi(AXA^{-1}) = \Phi(A) \phi(X) \Phi(A)^{-1}$$
-$$\phi(X) = \frac{d}{dt}(\Phi(e^{tX}))|_{t=0}$$
+$$\phi(X) = \frac{d}{dt}(\Phi(e^{tX}))  \Big|_{t=0}$$
 \end{theorem}
 From the perspective of smooth manifolds, the last equality is just the push-forward $(\Phi)_* : T_I(G) \to T_I(H)$.
 \begin{exercise}
 Check that the push-forward map $\Phi_* : T_I(G) \to T_I(H)$ in the context of differentiable manifolds coincides with the last equality above. More precisely, suppose $G$ has local coordinates $x_{ij}$, $H$ has local coordinates $y_{kl}$, check that
-$$\Phi_*(X_{ij} \frac{\partial}{\partial x_{ij}}|_{I_G}) = \sum_{k,l} X_{ij} \frac{\partial \Phi_{kl}}{\partial x_{ij}} \frac{\partial}{\partial y_{kl}}|_{I_H}$$
+$$\Phi_*(X_{ij} \frac{\partial}{\partial x_{ij}}  \Big|_{I_G}) = \sum_{k,l} X_{ij} \frac{\partial \Phi_{kl}}{\partial x_{ij}} \frac{\partial}{\partial y_{kl}}  \Big|_{I_H}$$
 \end{exercise}
 \begin{proof}
 We define $\phi: \mf{g} \to \mf{h}$ to be its corresponding map in smooth manifold $\Phi_*: T_IG \to T_IH$. By the above exercise, the third equality is satisfied. For the first equality, let $X \in \mf{g}$, consider the maps
 $$f: t \mapsto \Phi(e^{tX})\ \ ,\ \ g:t \mapsto e^{t\phi(X)}$$
 then $f(0) = g(0) = I$ and
-$$\frac{df}{dt}|_{t = 0} = \Phi_* (\frac{d}{dt} e^{tX}|_{t = 0}) = \Phi_*(X) = \phi(X) = \frac{dg}{dt}|_{t = 0}$$
+$$\frac{df}{dt}  \Big|_{t = 0} = \Phi_* (\frac{d}{dt} e^{tX}  \Big|_{t = 0}) = \Phi_*(X) = \phi(X) = \frac{dg}{dt}  \Big|_{t = 0}$$
 Note that both maps are Lie group homomorphisms, in particular $f(s+t) = f(s)f(t)$ and hence for all $s \in \bb{R}$,
-$$\frac{df}{dt}|_{t = s} = f(s)\frac{df}{dt}|_{t=0}$$
-$$\frac{dg}{dt}|_{t = s} = g(s)\frac{dg}{dt}|_{t = 0}$$
+$$\frac{df}{dt}  \Big|_{t = s} = f(s)\frac{df}{dt}  \Big|_{t=0}$$
+$$\frac{dg}{dt}  \Big|_{t = s} = g(s)\frac{dg}{dt}  \Big|_{t = 0}$$
 Therefore by uniqueness of solutions in differential equations, $f(t) = g(t)$ for some open neighborhood $t \in (-\epsilon, \epsilon)$. But then it implies $f(t) = g(t)$ for all $t$ (Why? - use homomorphism properties of $f$ and $g$). So we have (when $t=1$) $\Phi(e^X) = e^{\phi(X)}$.\\
 
 Before we check the second equality, let us check that $\phi$ is a linear map: Since $e^{t\phi(X)} = \Phi(e^{tX})$,
@@ -690,7 +690,7 @@ differentiate both sides and take $t = 0$, we get $\phi(AXA^{-1}) = \Phi(A)\phi(
 
 Now we are left to check $\phi$ is a Lie algebra homomorphism. Consider
 \begin{align*}
-\phi([X,Y]) &= \frac{d}{dt}\phi(e^{tX}Ye^{-tX})|_{t = 0}\\ &= \frac{d}{dt}\Phi(e^{tX})\phi(Y)\Phi(e^{-tX})|_{t = 0}\\ &= \frac{d}{dt} e^{t\phi(X)}\phi(Y)e^{-t\phi(X)}|_{t = 0}\\ &= [\phi(X), \phi(Y)]
+\phi([X,Y]) &= \frac{d}{dt}\phi(e^{tX}Ye^{-tX})  \Big|_{t = 0}\\ &= \frac{d}{dt}\Phi(e^{tX})\phi(Y)\Phi(e^{-tX})  \Big|_{t = 0}\\ &= \frac{d}{dt} e^{t\phi(X)}\phi(Y)e^{-t\phi(X)}  \Big|_{t = 0}\\ &= [\phi(X), \phi(Y)]
 \end{align*}
 We will leave the proof of uniqueness of $X \mapsto \phi(X)$ as an exercise.
 \end{proof}
@@ -733,7 +733,7 @@ If we have a Lie algebra homomorphism $\phi: \mf{g} \to \mf{h}$, can we find a c
 We will prove $(3)$ and give a brief account on $(1)$ next Chapter, after introducing Baker-Campbell-Hausdorff formula. It is worth noting that $(2)$ does NOT hold for matrix Lie groups, yet $(1)$ and $(3)$ hold for matrix Lie groups.
 
 \newpage
-\section{Baker-Campbell-Hausdorff Formula}
+\chapter{Baker-Campbell-Hausdorff Formula}
 Before discussing the importance of the BCH formula, we first state the formula: If $||X||$ and $||Y||$ are small, then
 $$\log(e^Xe^Y) = X+Y + \frac{1}{2}[X,Y] + \frac{1}{12}([X,[X,Y]] - [Y,[X,Y]]) + \dots$$
 where the remaining terms are all of the form of brackets involving $X$ and $Y$'s. We do not worry too much about the exact coefficients, but notice the following important fact: If $X, Y \in \mf{g}$ are small, then
@@ -752,7 +752,7 @@ now BCH formula gives
 $$e^{\phi(\log(e^{X}e^{Y}))} = e^{\log(e^{\phi(X)}e^{\phi(Y)})} = e^{\phi(X)}e^{\phi(Y)} = \Phi(e^X)\Phi(e^Y)$$
 which is what we want. \\
 We have seen the power of the BCH formula (regardless of its explicit form). However, as noted above, this only holds for $||X||, ||Y||$ small. This is the thing we are going to fix for the rest of this Chapter.
-\subsection{Adjoint Map}
+\section{Adjoint Map}
 \begin{definition}
 Let $G$ be a matrix Lie group with Lie algebra $\mf{g}$. For each $g \in G$, define the \textbf{group adjoint map} $Ad_g: \mf{g} \to \mf{g}$ by:
 $$Ad_g(X) = gXg^{-1}$$
@@ -769,8 +769,8 @@ $ad_X \in \mf{gl}(\mf{g})$ is given by $ad_X(Y) := [X,Y]$. Also $e^{ad_X}(Y) = A
 \end{proposition}
 \begin{proof}
 Recall Theorem \ref{gptoalg},
-$$ad_X = \frac{d}{dt}Ad(e^{tX})|_{t=0}$$
-Therefore, $ad_X(Y) = \frac{d}{dt}Ad(e^{tX})(Y)|_{t=0} = \frac{d}{dt}(e^{tX}Ye^{-tX})|_{t=0} = XY - YX = [X,Y]$.\\
+$$ad_X = \frac{d}{dt}Ad(e^{tX})  \Big|_{t=0}$$
+Therefore, $ad_X(Y) = \frac{d}{dt}Ad(e^{tX})(Y)  \Big|_{t=0} = \frac{d}{dt}(e^{tX}Ye^{-tX})  \Big|_{t=0} = XY - YX = [X,Y]$.\\
 
 For the second statement, one can directly apply the first equality in Theorem \ref{gptoalg} with $H = GL(\mf{g})$ and $\Phi:G \to H$ given by $g \mapsto Ad_g$. Alteratively, we can compute the following:
 $$e^{ad_X}(Y) = Y + ad_X(Y) + \frac{1}{2!} ad_{X}^2(Y) + \dots$$
@@ -810,7 +810,7 @@ and hence $\phi(e^{ad_X} Y) = e^{ad_{\phi(X)}}(\phi(Y))$. Now
 &= \log (e^{\phi(X)}e^{\phi(Y)})
 \end{align*}
 \end{proof}
-\subsection{Proof of Lie's Second Theorem}
+\section{Proof of Lie's Second Theorem}
 We now go to the proof of the main Theorem:
 \begin{theorem}[Lie's Second Theorem - matrix Lie group setting] \label{algreptogprep}
 Let $G$ and $H$ be matrix Lie groups with Lie algebras $\mf{g}$ and $\mf{h}$, and $\phi:\mf{g} \to \mf{h}$ is a Lie algebra homomorphism. If $G$ is simply connected, then there exists a unique Lie group homomorphism $\Phi: G \to H$ so that for all $X \in \mf{g}$,
@@ -819,7 +819,7 @@ $$\Phi(e^X) = e^{\phi(X)}$$
 \begin{proof}
 See [Hall] p. 76-80.
 \end{proof}
-\subsection{Lie subalgebras and Lie's Third Theorem}
+\section{Lie subalgebras and Lie's Third Theorem}
 Another application of the BCH formula can help solve Lie's Third Theorem. Instead of proving the Theorem directly, we want to answer a more specific question:\\
 \textbf{Suppose $G$ is a matrix Lie group with Lie algebra $\mf{g}$, and $\mf{h} \subset \mf{g}$ is a Lie subalgebra, i.e. for all $H_1, H_2 \in \mf{h}$, $[H_1, H_2] \in \mf{h}$. Can we find a matrix Lie subgroup $H$ of $G$ so that the Lie algebra of $H$ is precisely $\mf{h}$?}\\
 This question is important because of the following Theorem:
@@ -831,7 +831,7 @@ If the answer of the above question is YES, then for any Lie algebras $\mf{h}$, 
 \noindent Unfortunately, the answer to the question is NO. An exercise among almost all textbook on Lie groups is to take $\mf{h} = \left\{ diag(it, i\alpha t)\ \Big|\ t \in \bb{R} \right\} \subset \mf{gl}(2,\bb{C})$. The exponentials of $\mf{h}$ does not constitute a closed subset of $GL(2,\bb{C})$. So we loosen our restrictions on $H$ being a closed subgroup and define the following:
 \begin{definition} \label{cls}
 Let $G$ be a matrix Lie group with Lie algebra $\mf{g}$, then a subgroup $H \leq G$ is called a \textbf{connected Lie subgroup} of $G$ if:\\
-(a) The set $\mf{h} : = \left\{X | e^{tX} \in H \text{ for all } t \in \bb{R} \right\}$ is a subspace of $\mf{g}$.\\
+(a) The set $\mf{h} : = \left\{X\ \Big|\ e^{tX} \in H \text{ for all } t \in \bb{R} \right\}$ is a subspace of $\mf{g}$.\\
 (b) Every element of $H$ can be written as $e^{X_1} \dots e^{X_m}$ for $X_i \in \mf{h}$.\\
 \end{definition}
 Obviously, if $H$ is a matrix Lie subgroup of $G$, then (a) and (b) can be satisfied by results in Chapter 2, and hence it is a connected Lie subgroup. It can be checked further that if $H$ is a connected Lie group, then the \textit{Lie algebra} $\mf{h}$ in Definition \ref{cls}(a) forms a Lie subalgebra of $\mf{g}$.\\
@@ -846,7 +846,7 @@ In short, the answer to the question in the beginning of this Section is YES, if
 
 A sketch proof of the Theorem above can be found in Chapter 3 of [Hall]. For a more modern and general proof (in terms of manifolds), one needs the notion of \textbf{distributions} and \textbf{Frobenius Theorem} to establish a imbedded submanifold structure of $H$. One can find out more details in Chapter 20 of [Lee].
 
-\subsection{A few words on Lie's First Theorem}
+\section{A few words on Lie's First Theorem}
 Since we do not study much on algebraic topology, we do not give a proof of Lie's first Theorem. The key point is, for any Lie group $G$ whose fundamental group $\pi_1(G)$ is of order $n$, then we can always construct a universal covering group $\tilde{G}$ with\\
 (a)\ $Lie(\tilde{G}) \cong \mf{g}$,\\
 (b)\ $\pi_1(\tilde{G}) = 1$, and\\
@@ -859,7 +859,7 @@ Use Lie's Second Theorem \ref{algreptogprep} to show the uniqueness of $\tilde{G
 
 \newpage
 
-\section{Basic Representation Theory}
+\chapter{Basic Representation Theory}
 \begin{definition}
 Let $G$ be a Lie group. Then a finite-dimensional \textbf{representation of $G$} is a Lie group homomorphism
 $$\Pi: G \to GL(V)$$
@@ -907,12 +907,12 @@ We will be interested in equivalent classes of representations. In particular, w
 
 
 
-\subsection{Relation Between Lie group and Lie algebra representations}
+\section{Relation Between Lie group and Lie algebra representations}
 As of our ultimate goal in this course, we want to study Lie group representations using Lie algebra representations. It is easy to pass from Lie group to Lie algebra representations:
 \begin{proposition}
 Let $G$ be a matrix Lie group with Lie algebra $\mf{g}$. Let $(\Pi,V)$ be a finite-dimensional representation of $G$, then there is a unique finite-dimensional representation $(\pi,V)$ of $\mf{g}$ such that
 $$\Pi(e^X) = e^{\pi(X)}$$
-$$\pi(X) = \frac{d}{dt}(\Pi(e^{tX}))|_{t = 0}$$
+$$\pi(X) = \frac{d}{dt}(\Pi(e^{tX}))  \Big|_{t = 0}$$
 \end{proposition}
 \begin{proof}
 Use Theorem \ref{gptoalg} with $H = GL(V)$.
@@ -924,7 +924,7 @@ Use Theorem \ref{gptoalg} with $H = GL(V)$.
 \begin{proof}
 (a) Suppose $\Pi$ is irreducible. We now study the invariant subspaces $W$ of $(\pi,V)$. Since $G$ is connected, we can express $g = e^{X_1}\dots e^{X_m}$ by Lemma \ref{connexp} for any $g \in G$. \\
 Now $\pi(X_i)$ are all invariant in $W$, so does $e^{\pi(X_i)} = \Pi(e^{X_i})$. So $\Pi(g) = \Pi(e^{X_1}\dots e^{X_m})$ also leaves $W$ invariant. However, $g$ is arbitrary, that means $W$ is invariant under $G$, and hence $W$ must be $\left\{0\right\}$ or $V$.\\
-The other direction, suppose $\pi$ is irreducible. Let $W$ to be an invariant subspace of $\Pi$, then $W$ is invariant under $\Pi(e^{tX})$ for all $t$, and hence is invariant under $\pi(X) = \frac{d}{dt}\Pi(e^{tX})|_t = 0$. But $\pi$ is irreducible, hence $W = \left\{0\right\}$ or $V$.\\
+The other direction, suppose $\pi$ is irreducible. Let $W$ to be an invariant subspace of $\Pi$, then $W$ is invariant under $\Pi(e^{tX})$ for all $t$, and hence is invariant under $\pi(X) = \frac{d}{dt}\Pi(e^{tX})  \Big|_t = 0$. But $\pi$ is irreducible, hence $W = \left\{0\right\}$ or $V$.\\
 (b) Exercise.
 \end{proof}
 \begin{exercise}
@@ -961,7 +961,7 @@ a \\
 -a \end{array} \right) \right\}$ is obviously an invariant subspace of $V$ under $\pi(\mf{g})$.\\
 
 \noindent (b)Let $G = O(2,\bb{R})$. Then the maps $\Pi_1: G \to \bb{C}^*$ given by $\Pi_1(g) = 1$ and $\Pi_2: G \to \bb{C}^*$ given by $\Pi_2(g) = \det(g)$ are obviously not equivalent. However, $\pi_1 = \pi_2$ are both zero maps as representations of $\mf{g}$: For $\pi_2$,
-$$\pi_2(X) := \frac{d}{dt}(\det(e^{tX}))|_{t=0} = \frac{d}{dt}(e^{trace(tX)})|_{t=0} = \frac{d}{dt}(e^0)|_{t=0} = 0$$
+$$\pi_2(X) := \frac{d}{dt}(\det(e^{tX}))  \Big|_{t=0} = \frac{d}{dt}(e^{trace(tX)})  \Big|_{t=0} = \frac{d}{dt}(e^0)  \Big|_{t=0} = 0$$
 for all $X \in \mf{g}$.
 
 
@@ -974,7 +974,7 @@ Let $G$ be a simply connected matrix Lie group. There is a one-on-one correspond
 \end{corollary}
 Again, if $G$ fails to be simply connected, the Corollary does not hold any more. We will see some examples on it later.
 
-\subsection{Some Examples of Representations}
+\section{Some Examples of Representations}
 Before we go on, it is a good idea to introduce some representations.
 \subsubsection{Trivial Representation}
 For any $G$, we can always define the trivial map $T: G \to GL(1,\bb{C})$ by $T(g) = I$ for all $g$. This is called the \textbf{trivial representation} of $G$. Unless $G$ is trivial group, the trivial representation is always not faithful.\\
@@ -1030,7 +1030,7 @@ The obscure looking $g^{-1}$ is necessary to make sure $\Pi^*$ is a homomorphism
 $$\Pi^*(g)\Pi^*(h)f(v) = \Pi^*(g)f_h(v) = f_h(g^{-1}v) = f(h^{-1}g^{-1}v) = f((gh)^{-1}v) = \Pi^*(gh)f(v)$$
 
 
-\subsection{Complexification of Lie algebras and Representations} \label{complex}
+\section{Complexification of Lie algebras and Representations} \label{complex}
 In Chapter 2, we studied how to `complexify' a real Lie algebra into a complex Lie algebra. This turns out to be a very useful tool in studying representations:
 \begin{theorem}
 Let $\mf{g}$ be a real Lie algebra with complexification $\mf{g}_{\bb{C}}$. Then every finite-dimensional representation $(\pi,V)$ of $\mf{g}$ has a unique extension to a \textbf{complex-linear} representation of $\mf{g}_{\bb{C}}$ given by
@@ -1046,7 +1046,7 @@ Conversely, suppose $\pi$ is irreducible over $\mf{g}_{\bb{C}}$. Then for $W \le
 $$\pi(X+JY)w = \pi(X)w + i\pi(Y)w \in W$$
 since $\pi(X)w, \pi(Y)w \in W$ and $W$ is a complex vector subspace. That means $W$ is also invariant over $\mf{g}_{\bb{C}}$ and this forces $W = \left\{0\right\}$ or $V$ by hypothesis.
 \end{proof}
-\subsection{First Example: Irreducible Representations of $SU(2)$}
+\section{First Example: Irreducible Representations of $SU(2)$}
 We now study the finite-dimensional irreducible representations of $SU(2)$. From all the tools we have developed, we can reduce the problem:\\
 (1) Since $SU(2)$ is simply connected, we can study the representation of its Lie algebra $\mf{su}(2)$.\\
 (2) By Section \ref{complex}, we can study the complex linear representations of the Lie algebra $\mf{sl}(2,\bb{C}) \cong \mf{su}(2)_{\bb{C}}$.\\
@@ -1096,7 +1096,7 @@ For all $m \in \bb{N}$, there is an irreducible representation of $\mf{sl}(2,\bb
 \end{theorem}
 From there, one can reveal the representation of $\mf{su}(2)$ by restricting the representation of $\mf{sl}(2,\bb{C})$, and the representation of $SU(2)$ by the formula $\Pi(e^X) = e^{\pi(X)}$ (Exercise: Check that the exponential map $exp: \mf{su}(2) \to SU(2)$ is onto)
 
-\subsection{Representations of $SO(3,\bb{R})$}
+\section{Representations of $SO(3,\bb{R})$}
 After studying the representation of $SU(2)$, we would like to study the representation theory of $SO(3,\bb{R})$. In fact, we have a Lie algebra isomorphism $\phi: \mf{su}(2) \to \mf{so}(3,\bb{R})$ given by\small{
 $$\frac{1}{2} \left( \begin{array}{cc}
 i & 0 \\
@@ -1158,7 +1158,7 @@ however, we can see $e^{\pi \pi_m(\left( \begin{array}{cc}
 \end{proof}
 The fact that `fundamental group of $SO(3,\bb{R})$ is $\bb{Z}/2\bb{Z}$' implies `half of the irreducible representations of the universal cover of $SO(3,\bb{R})$ factors through $SO(3,\bb{R})$' is no coincidence. We will come back to this once we have introduced the \textbf{highest weight theory}.
 
-\subsection{Complete Reducibility}
+\section{Complete Reducibility}
 Our goal is to study all representations of a Lie group or Lie algebra. The irreducible representations are like the building blocks, and we hope that every representation can be `built' from the irreducible ones. Hence we have the notion of complete reducibility of representations.
 \begin{definition}
 A (finite dimensional) representation $V$ is \textbf{completely reducible} if for any invariant subspace $W \leq V$, we can find an invariant subspace $W^{\perp} \leq V$ so that $W \oplus W^{\perp} = V$.\\
@@ -1194,7 +1194,7 @@ Let $G$ be a Lie group, and $(\Pi,V)$ is a \textbf{unitary} representation on a 
 \end{proposition}
 \begin{proof}
 Let $W$ is an invariant subspace of $V$, then check that
-$$W^{\perp} := \left\{v \in V | \langle v, w \rangle = 0 \text{ for all }v \in V \right\}$$
+$$W^{\perp} := \left\{v \in V\ \Big|\ \langle v, w \rangle = 0 \text{ for all }v \in V \right\}$$
 is also an invariant subspace.
 \end{proof}
 
@@ -1216,7 +1216,7 @@ hence the representation is unitary and is completely reducible.
 
 
 \newpage
-\section{Semisimple Lie algebras and Cartan-Weyl's Highest Weight Theory}
+\chapter{Semisimple Lie algebras and Cartan-Weyl's Highest Weight Theory}
 As we have already seen in last Chapter, it is much nicer to study representation theory of a Lie group by its Lie algebra. Also, certain kinds of Lie groups/algebras has the complete reducibility property, which means we know all of their (finite-dimensional) representations by classifying the irreducible representations.
 \begin{definition}
 A complex Lie algebra $\mf{g}$ is called \textbf{semisimple} if it is isomorphic to $\mf{k}_{\bb{C}}$ for some Lie algebra $\mf{k}$ of a simply-connected, compact matrix Lie group $K$.\\
@@ -1261,7 +1261,7 @@ $$\mf{so}(4,\bb{R}) \cong \mf{su}(2) \oplus \mf{su}(2)$$
 \end{remark}
 As we see, the class of semisimple Lie algebras covers a lot of interesting examples already - including many matrix Lie groups we have studied. Now we are ready to develop a theory to classify all finite-dimensional irreducible representations of complex semisimple Lie algebras.
 
-\subsection{Cartan subalgebras}
+\section{Cartan subalgebras}
 \begin{definition}
 Let $\mf{g}$ be a complex semisimple Lie algebra. A Cartan subalgebra (CSA) of $\mf{g}$ is a complex subalgebra $\mf{h}$ so that it is maximally abelian, and $ad_H$ is diagonalizable in $\mf{gl}(\mf{g})$.
 \end{definition}
@@ -1321,7 +1321,7 @@ The \textbf{rank} of a complex semisimple Lie algebra $\mf{g}$ is the dimension 
 Recall the list of the classification of simple Lie algebras. The number $n$ there is precisely the rank of the algebra.
 \end{example}
 
-\subsection{Root Space Decomposition}
+\section{Root Space Decomposition}
 For any complex semisimple Lie algebra $\mf{g}$, fix a real form $\mf{k}$ and a Cartan subalgebra $\mf{h} \subset \mf{g}$. Note that by the definition of Cartan subalgebra, we can:\\
 (a) Find a basis of $\mf{g}$ consisting of eigenvectors of $ad_H$ for each $H \in \mf{h}$.\\
 (b) Since every element in $\mf{h}$ commute with each other, the basis we obtained in (a) is also an eigenvector decomposition for \textit{any} element in $\mf{h}$. This is sometimes called the \textit{simultaneous diagonalization} of $\mf{g}$.\\
@@ -1379,7 +1379,7 @@ The \textbf{root lattice} $\Lambda_R$ is a lattice in $\mf{h}^*$ consisting of $
 \end{definition}
 
 
-\subsection{Construction of $\mf{sl}(2,\bb{C})$-triple}
+\section{Construction of $\mf{sl}(2,\bb{C})$-triple}
 Recall our construction of irreducible $\mf{sl}(2,\bb{C})$ representations. We need to pick a suitable $\left\{H, X, Y\right\}$ and make the construction explicit. In the general case, we will construct $\mf{s}_{\alpha} := \left\{H_{\alpha}, X_{\alpha}, Y_{\alpha}\right\}$ for every $\alpha \in R$ so that $X_{\alpha} \in \mf{g}_{\alpha}$, $Y_{\alpha} \in \mf{g}_{-\alpha}$ satisfying the relations
 $$[H_{\alpha}, X_{\alpha}] = 2X_{\alpha}$$
 $$[H_{\alpha}, Y_{\alpha}] = -2Y_{\alpha}$$
@@ -1411,7 +1411,7 @@ We have shown the existence of $\mf{s}_{\alpha}$, it is good to state what conse
 
 
 
-\subsection{Weights of a Representation}
+\section{Weights of a Representation}
 Now let us go ahead and define all the necessary materials for the classification of irreducible representations:
 \begin{definition} \label{defweight}
 Let $(\pi,V)$ be any finite-dimensional representation of $\mf{g}$. Then an element $\beta \in \mf{h}^*$ is called a \textbf{weight} for $\pi$ if there is a non-zero $v \in V$ such that
@@ -1473,7 +1473,7 @@ $$\includegraphics[width=8cm, height =6cm]{weight.png}$$
 The example shows the weight of an irreducible representation in $\mf{sl}(3,\bb{C})$ and the plane is $\mf{h}^*$ which is 2-dimensional. One can see there is a symmetry on the distribution of weights (in the $\mf{sl}(2,\bb{C})$ example, the symmetry is preisely flipping over the weights along the origin.)\\
 With this symmetry, one can determine the irreducible representation by looking at the `corners' of the weight diagram. This is precisely the circled dot on the diagram above (or the end $\frac{m}{2}\alpha$ in the $\mf{sl}(2,\bb{C})$ example).\\
 This will be the next topic we are to study next Sections: all the weight diagrams has a \textbf{Weyl group} symmetry. By fixing a \textbf{Weyl chamber}, there is only one \textbf{highest weight} (corner) on each Weyl chamber. The highest weight determines all irreducible representations of $\mf{g}$.
-\subsection{Weyl Group}
+\section{Weyl Group}
 \begin{definition}
 Let $\mf{g}$ be a complex semisimple Lie algebra, and $\mf{h} = \mf{t} + i\mf{t}$ be a CSA of $\mf{g}$. Then the \textbf{Weyl group} is defined as
 $$W := N_K(\mf{t})/Z_K(\mf{t})$$
@@ -1606,7 +1606,7 @@ In particular, it flips the weights $\left\{-\frac{m}{2}\alpha,\dots,\frac{m}{2}
 $$s_{\epsilon_1 - \epsilon_2} \beta = \beta - 2\frac{\langle H^{\epsilon_1 - \epsilon_2}, H^{\beta} \rangle}{\langle H^{\epsilon_1 - \epsilon_2}, H^{\epsilon_1 - \epsilon_2} \rangle} (\epsilon_1 - \epsilon_2) = \beta - \beta(H_{11} - H_{22})(\epsilon_1 - \epsilon_2)$$
 For example, if $\beta = 4\epsilon_1 + 2\epsilon_2 \in \Lambda_W$, then $s_{\epsilon_1 - \epsilon_2} \beta = 2\epsilon_1 + 4\epsilon_2$. This corresponds to the reflection of the circled dot in the diagram to the dot on the top of the diagram. In fact, the reflection by $\epsilon_1 - \epsilon_2$ is given by the reflection on the slanted dotted line on the diagram.
 \end{example}
-\subsection{Simple Roots and Weyl Chamber}
+\section{Simple Roots and Weyl Chamber}
 As we mentioned, we need to pick one `fundamental domain' for our weight diagram, so that we can fill out the whole weight diagram from the domain using Weyl group symmetry. This is the main content of this Section.\\
 The following definition is essential in picking which domain we
 \begin{definition}
@@ -1656,7 +1656,7 @@ for all $\alpha \in \Delta^+$. Show that $\langle \alpha, mu \rangle \geq 0$.
 \end{exercise}
 For example, the Weyl chamber of $\mf{sl}(3,\bb{C})$ is the area bounded by the two dotted lines in the diagram.
 
-\subsection{Cartan-Weyl's Highest Weight Theorem}
+\section{Cartan-Weyl's Highest Weight Theorem}
 Here is the statement of Cartan-Weyl's classification:
 \begin{theorem}
 Let $\mf{g}$ be a complex semisimple Lie algebra. Then there is a one-to-one correspondence between finite-dimensional, irreducible representations of $\mf{g}$ and the dominant integral elements $\mu \in \Lambda_W \cap \mc{W}$.
@@ -1705,10 +1705,10 @@ Let $(\pi_1,V_1)$ and $(\pi_2, V_2)$ be two irreducible representations with the
 \end{proposition}
 \begin{proof}
 Consider the representation $V_1 \oplus V_2$ of $\mf{g}$. Write $U$ as the smallest invariant subspace of $V_1 \oplus V_2$ containing the vector $(v_1,v_2) \in V_1 \oplus V_2$, where $v_1$ and $v_2$ are the highest weight vector in $V_1$ and $V_2$ respectively. Then $U$ is irreducible, containing the highest weight $\mu$.\\
-Now consider the projection map $p_i: V_1 \oplus V_2 \to V_i$. It is obviously an intertwining map, and so are their restrictions $p_i|_U: U \to V_i$. Note that $p_i|U$ are non-zero maps by construction, and hence Schur's Lemma says $p_i|_U$ are isomorphisms. That is, $V_1 \cong U \cong V_2$.
+Now consider the projection map $p_i: V_1 \oplus V_2 \to V_i$. It is obviously an intertwining map, and so are their restrictions $p_i  \Big|_U: U \to V_i$. Note that $p_i|U$ are non-zero maps by construction, and hence Schur's Lemma says $p_i  \Big|_U$ are isomorphisms. That is, $V_1 \cong U \cong V_2$.
 \end{proof}
 
-\subsection{Verma Modules}
+\section{Verma Modules}
 To finish the Theorem of highest weight, we need to construct a finite-dimensional representation with highest weight $\mu \in \mc{W} \cap \Lambda_W$. We will realize the representation $V_{\mu}$ using \textbf{Verma modules}.
 \begin{theorem}
 Let $\mf{g}$ be a complex semisimple Lie algebra with positive roots $R^+ = \left\{\alpha_1, \dots, \alpha_m\right\}$. For any $\mu \in \mf{h}$, there is a representation $(M(\mu), \pi)$ of highest weight $\mu$ so that $M(\mu)$ is an infinite-dimensional vector space, with elements being a finite linear combination of vectors of the form
@@ -1764,7 +1764,7 @@ $$s_{\alpha} = e^{\pi(X_{\alpha})}e^{-\pi(Y_{\alpha})}e^{\pi(X_{\alpha})}$$
 acting on $L(\mu)$. Check that it maps the $\lambda$ weight space to $s_{\alpha} \cdot \lambda$ weight space.
 \end{proof}
 
-\subsection{Fundamental Weights and Some Explicit Constructions}
+\section{Fundamental Weights and Some Explicit Constructions}
 We would like to present a common way to denote the elements in the dominant weight lattice:
 \begin{definition}
 Let $\mf{g}$ be a complex semisimple Lie algebra, $R$ be its root space and $\Delta = \left\{ \alpha_1, \dots, \alpha_n\right\}$ be the set of positive simple roots.\\
@@ -1813,7 +1813,7 @@ $$\omega_{n-1} = \frac{1}{2}(\epsilon_1 + \dots \epsilon_{n-1} - \epsilon_n)\ \ 
 Similarly, $V_{n-1}$ and $V_n$ are realized as representations of $Spin(2n,\bb{C})$.
 \end{example}
 
-\subsection{Weight Lattice, Root Lattice and Fundamental Group}
+\section{Weight Lattice, Root Lattice and Fundamental Group}
 Before we take off, it is a good idea to give a brief conclusion on the stuffs we went over in the previous Sections: We have\\
 
 \noindent Representations of compact group $K$ $\longleftrightarrow$ Representation of compact Lie algebra $\mf{k}$ $\longleftrightarrow$ Representation of semisimple Lie algebra $\mf{g} = \mf{k}_{\bb{C}}$\\
@@ -1823,7 +1823,7 @@ Before we take off, it is a good idea to give a brief conclusion on the stuffs w
 \noindent The problem is to make sense out of the two $\longleftrightarrow$'s on the top - we know the $\rightarrow$ easily. For the second $\leftarrow$, we now know the classification of $\mf{g}$ and its representations, but how do we find out the compact form $\mf{k}$ from $\mf{g}$? We wrote down the compact form explicitly for the Types $A, B, C, D$, and for the exceptional $\mf{g}$, we need to use the \textit{Killing form} to determine which element in $\mf{g}$ is in $\mf{k}$. This can be done without much difficulty.\\
 
 \noindent The problem lies in the first $\leftarrow$. We know that if $K$ is simply connected, then there is a one-to-one correspondence between Lie algebra and Lie group representations. Even better, the map $exp: \mf{k} \to K$ is surjective, so by
-$$\Pi(exp(X)) = exp(\pi(X))$$
+$$\Pi(\exp(X)) = \exp(\pi(X))$$
 we know exactly how each $\Pi(k)$ looks like. But how about if $K$ is not simply connected? Recall that in computing the representations of $SU(2)$ and $SO(3,\bb{R})$ last Chapter. Since $SO(3,\bb{R})$ is not simply connected, not all irreducible representations of $\mf{so}(3,\bb{R})$ exponentiate to group level. More precisely, only half of them do exponentiate to a group representation.\\
 \begin{theorem}
 There is a one-to-one correspondence between connected compact Lie groups $K$ with Lie algebra $\mf{k}$, and lattices $\Lambda$ lying between $\Lambda_R$ and $\Lambda_W$,
@@ -1862,15 +1862,15 @@ i & 0  \\
 Hence $H_{\alpha} \in \Gamma$ and we have the first inclusion.\\
 
 For the second inclusion, suppose $X \in \Gamma$, i.e. $exp_K(2\pi iX) = I$, then for any $Z \in \mf{k}$,
-$$Z = Ad(exp_K(2\pi i X))Z = exp(ad_{2\pi i X})Z$$
+$$Z = Ad(exp_K(2\pi i X))Z = \exp(ad_{2\pi i X})Z$$
 in particular, if $Z = X_{\alpha} - Y_{\alpha} \in \mf{k}$, then
-$$X_{\alpha} - Y_{\alpha} = Z = exp(ad_{2\pi i X})Z = e^{2\pi i \alpha(X)}X_{\alpha} - e^{-2\pi i \alpha(X)}Y_{\alpha}$$
+$$X_{\alpha} - Y_{\alpha} = Z = \exp(ad_{2\pi i X})Z = e^{2\pi i \alpha(X)}X_{\alpha} - e^{-2\pi i \alpha(X)}Y_{\alpha}$$
 Since $X_{\alpha}$ and $Y_{\alpha}$ are linearly independent, this forces $\alpha(X) \in \bb{Z}$ for all $\alpha \in R$.
 \end{proof}
 
 To see its relations with fundamental group, we note the following
 \begin{proposition}
-Let $T := exp(\mf{t})$ and $i: T \hookrightarrow K$ be the inclusion map. Then we have an surjection $i_*: \pi_1(T) \to \pi_1(K)$ on fundamental groups. \\
+Let $T := \exp(\mf{t})$ and $i: T \hookrightarrow K$ be the inclusion map. Then we have an surjection $i_*: \pi_1(T) \to \pi_1(K)$ on fundamental groups. \\
 More precisely, all loops in $\pi_1(H)$ are represented by
 $$t \mapsto exp_K(2\pi it X)$$
 for $X \in \Gamma$, and is contractible in $G$ precisely when $X$ is an element in $\Lambda_R$. Consequently
@@ -1901,10 +1901,10 @@ $$exp_K(2\pi i \Gamma_W) = Z(K)$$
 Therefore, $Z(K) \cong \Gamma_W/\Gamma$.
 \end{lemma}
 \begin{proof}
-It is easy to see that $exp_K(2 \pi i \Gamma_W) \in Z(K)$ - suppose $X$ in $\Gamma_W$, then by some similar arguments as above, $Ad(exp_K(2 \pi i X)) = e^{ad_{2\pi i X}}$ acts trivially on $\mf{k}$. Now for every element $k \in K$, $k = exp(Y)$ by connectedness of $K$. Hence
-$$Ad(exp_K(2\pi i X))k = Ad(exp_K(2\pi i X))exp(Y) =  exp(Ad(exp_K(2 \pi i X))Y) = exp(Y) = k$$
+It is easy to see that $exp_K(2 \pi i \Gamma_W) \in Z(K)$ - suppose $X$ in $\Gamma_W$, then by some similar arguments as above, $Ad(exp_K(2 \pi i X)) = e^{ad_{2\pi i X}}$ acts trivially on $\mf{k}$. Now for every element $k \in K$, $k = \exp(Y)$ by connectedness of $K$. Hence
+$$Ad(exp_K(2\pi i X))k = Ad(exp_K(2\pi i X))\exp(Y) =  \exp(Ad(exp_K(2 \pi i X))Y) = \exp(Y) = k$$
 and hence $exp_K(2 \pi iX) \in Z(K)$.\\
-On the other direction, we need to show that every $z \in Z(K)$ must be of the form $z = exp(X)$ for some $X \in \mf{t}$. But this is obvious since $z$ commutes with every element in the maximal torus $T$, hence it must be in $T = exp(\mf{t})$.
+On the other direction, we need to show that every $z \in Z(K)$ must be of the form $z = \exp(X)$ for some $X \in \mf{t}$. But this is obvious since $z$ commutes with every element in the maximal torus $T$, hence it must be in $T = \exp(\mf{t})$.
 \end{proof}
 
 We are now in the position to prove the Theorem: For all compact connected Lie algebra $\mf{k}$, find a simply connected $\tilde{K}$ with Lie algebra equal to $\mf{k}$. This can be done because of Lie's Theorems (Theorem \ref{lietheorem}). Then all connected Lie groups $K$ with Lie algebra $\mf{k}$ must be isomorphic to $\tilde{K}/C$, where $C$ is a subgroup of the center of $\tilde{K}$, $Z(\tilde{K})$. In particular, if $K \cong \tilde{K}/C, \pi_1(K) \cong C \cong \Gamma/\Gamma_R$.\\
@@ -1924,7 +1924,7 @@ p & 0  \\
 0 & 0 & 0 \\
 0 & 0 & -2p \\
 0 & 2p & 0  \end{array} \right)$. So $X \in \Gamma$ iff
-$$exp(2\pi i \left( \begin{array}{ccc}
+$$\exp(2\pi i \left( \begin{array}{ccc}
 0 & 0 & 0 \\
 0 & 0 & -2p \\
 0 & 2p & 0  \end{array} \right)) = \left( \begin{array}{ccc}
